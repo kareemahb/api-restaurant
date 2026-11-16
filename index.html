@@ -3,33 +3,104 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Look up packaged restaurant ingredients by barcode to see allergens, ingredients, and nutrition."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="main.css" />
     <title>Restaurant Ingredient Checker</title>
   </head>
 
   <body>
-    <main class="app">
-      <header>
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 40 40">
+              <rect x="7" y="9" width="3" height="22" />
+              <rect x="13" y="9" width="2" height="22" />
+              <rect x="18" y="9" width="4" height="22" />
+              <rect x="25" y="9" width="2" height="22" />
+              <rect x="30" y="9" width="3" height="22" />
+            </svg>
+          </span>
+          <span class="brand-name">Ingredient<br />Checker</span>
+        </div>
+        <p class="header-tag">For kitchen &amp; front-of-house teams</p>
+      </div>
+    </header>
+
+    <main class="app container">
+      <section class="hero">
+        <p class="eyebrow">Restaurant tools</p>
         <h1>Restaurant Ingredient Checker</h1>
-        <p>Look up packaged restaurant ingredients using their barcode.</p>
-      </header>
-
-      <section class="search-section">
-        <label for="barcodeInput"> Product Barcode </label>
-
-        <input
-          type="text"
-          id="barcodeInput"
-          placeholder="Example: 79845457343467"
-        />
-
-        <button id="searchButton">Search</button>
+        <p class="hero-text">
+          Look up packaged restaurant ingredients using their barcode, so you
+          can answer guest allergy questions with confidence.
+        </p>
       </section>
 
-      <p id="message"></p>
+      <section class="search-section">
+        <form id="searchForm" class="search-form" novalidate>
+          <label for="barcodeInput">Product Barcode</label>
+
+          <div class="search-row">
+            <input
+              type="text"
+              id="barcodeInput"
+              inputmode="numeric"
+              autocomplete="off"
+              placeholder="Example: 3017624010701"
+            />
+
+            <button type="submit" id="searchButton">Search</button>
+          </div>
+        </form>
+
+        <div class="examples">
+          <span>Try one:</span>
+          <button
+            type="button"
+            class="example-chip"
+            data-barcode="3017624010701"
+          >
+            Nutella
+          </button>
+          <button
+            type="button"
+            class="example-chip"
+            data-barcode="5449000000996"
+          >
+            Coca-Cola
+          </button>
+          <button
+            type="button"
+            class="example-chip"
+            data-barcode="8076809513753"
+          >
+            Barilla Pasta
+          </button>
+        </div>
+      </section>
+
+      <p id="message" class="message" role="status" aria-live="polite"></p>
 
       <section id="productResult"></section>
     </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>Product data from Open Food Facts, a free community database.</p>
+        <p>Always check the package label to confirm allergens.</p>
+      </div>
+    </footer>
+
     <script src="main.js"></script>
   </body>
 </html>
